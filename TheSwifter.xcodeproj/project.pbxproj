@@ -8,14 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		7F06155220AB887D0092A6B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06155120AB887D0092A6B0 /* AppDelegate.swift */; };
-		7F06155420AB887D0092A6B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06155320AB887D0092A6B0 /* ViewController.swift */; };
+		7F06155420AB887D0092A6B0 /* StreamingTweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06155320AB887D0092A6B0 /* StreamingTweetsViewController.swift */; };
 		7F06155720AB887D0092A6B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F06155520AB887D0092A6B0 /* Main.storyboard */; };
 		7F06155920AB887E0092A6B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F06155820AB887E0092A6B0 /* Assets.xcassets */; };
 		7F06155C20AB887E0092A6B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F06155A20AB887E0092A6B0 /* LaunchScreen.storyboard */; };
-		7F06157620AB88C20092A6B0 /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F06156E20AB88B00092A6B0 /* SwifteriOS.framework */; };
 		7F06157920AB8E4B0092A6B0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06157820AB8E4B0092A6B0 /* Model.swift */; };
 		7F06157B20ACDAE80092A6B0 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06157A20ACDAE80092A6B0 /* UIButtonExtensions.swift */; };
 		7F06157D20ACE31A0092A6B0 /* StreamingTweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06157C20ACE31A0092A6B0 /* StreamingTweetCell.swift */; };
+		7F06158020AD03F70092A6B0 /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F06156E20AB88B00092A6B0 /* SwifteriOS.framework */; };
+		7F06158120AD03F70092A6B0 /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7F06156E20AB88B00092A6B0 /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7F06158720AE048A0092A6B0 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06158620AE048A0092A6B0 /* Protocols.swift */; };
+		7F06158920AE04E40092A6B0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06158820AE04E40092A6B0 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,12 +57,33 @@
 			remoteGlobalIDString = F6B4D5751C7BAC4500E06514;
 			remoteInfo = SwifterTests;
 		};
+		7F06158220AD03F70092A6B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7F06156320AB88B00092A6B0 /* Swifter.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B9F50ED1944A5AB00894629;
+			remoteInfo = SwifteriOS;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7F06158420AD03F70092A6B0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7F06158120AD03F70092A6B0 /* SwifteriOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7F06154E20AB887D0092A6B0 /* TheSwifter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheSwifter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F06155120AB887D0092A6B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7F06155320AB887D0092A6B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7F06155320AB887D0092A6B0 /* StreamingTweetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingTweetsViewController.swift; sourceTree = "<group>"; };
 		7F06155620AB887D0092A6B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7F06155820AB887E0092A6B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F06155B20AB887E0092A6B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -68,6 +92,8 @@
 		7F06157820AB8E4B0092A6B0 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7F06157A20ACDAE80092A6B0 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
 		7F06157C20ACE31A0092A6B0 /* StreamingTweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingTweetCell.swift; sourceTree = "<group>"; };
+		7F06158620AE048A0092A6B0 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		7F06158820AE04E40092A6B0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F06157620AB88C20092A6B0 /* SwifteriOS.framework in Frameworks */,
+				7F06158020AD03F70092A6B0 /* SwifteriOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,15 +128,15 @@
 		7F06155020AB887D0092A6B0 /* TheSwifter */ = {
 			isa = PBXGroup;
 			children = (
-				7F06155120AB887D0092A6B0 /* AppDelegate.swift */,
-				7F06155320AB887D0092A6B0 /* ViewController.swift */,
-				7F06155520AB887D0092A6B0 /* Main.storyboard */,
-				7F06155820AB887E0092A6B0 /* Assets.xcassets */,
-				7F06155A20AB887E0092A6B0 /* LaunchScreen.storyboard */,
-				7F06155D20AB887E0092A6B0 /* Info.plist */,
-				7F06157820AB8E4B0092A6B0 /* Model.swift */,
-				7F06157A20ACDAE80092A6B0 /* UIButtonExtensions.swift */,
-				7F06157C20ACE31A0092A6B0 /* StreamingTweetCell.swift */,
+				7FC0900520AE0EFC002803E6 /* App Delegate */,
+				7FC0900420AE0E8E002803E6 /* Protocols */,
+				7FC0900320AE0E7F002803E6 /* View Controllers */,
+				7F06158E20AE0C960092A6B0 /* Networking */,
+				7F06158D20AE0C850092A6B0 /* Models */,
+				7F06158C20AE0C710092A6B0 /* Storyboards */,
+				7F06158B20AE0C550092A6B0 /* Supporting Files */,
+				7FC08FFE20AE0E6A002803E6 /* View Classes */,
+				7F06158A20AE0C430092A6B0 /* UIKit Extensions */,
 			);
 			path = TheSwifter;
 			sourceTree = "<group>";
@@ -135,6 +161,80 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7F06158A20AE0C430092A6B0 /* UIKit Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7F06157A20ACDAE80092A6B0 /* UIButtonExtensions.swift */,
+			);
+			path = "UIKit Extensions";
+			sourceTree = "<group>";
+		};
+		7F06158B20AE0C550092A6B0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7F06155820AB887E0092A6B0 /* Assets.xcassets */,
+				7F06155D20AB887E0092A6B0 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7F06158C20AE0C710092A6B0 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				7F06155520AB887D0092A6B0 /* Main.storyboard */,
+				7F06155A20AB887E0092A6B0 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		7F06158D20AE0C850092A6B0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7F06157820AB8E4B0092A6B0 /* Model.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7F06158E20AE0C960092A6B0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7F06158820AE04E40092A6B0 /* DataManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		7FC08FFE20AE0E6A002803E6 /* View Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7F06157C20ACE31A0092A6B0 /* StreamingTweetCell.swift */,
+			);
+			path = "View Classes";
+			sourceTree = "<group>";
+		};
+		7FC0900320AE0E7F002803E6 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7F06155320AB887D0092A6B0 /* StreamingTweetsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7FC0900420AE0E8E002803E6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7F06158620AE048A0092A6B0 /* Protocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7FC0900520AE0EFC002803E6 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				7F06155120AB887D0092A6B0 /* AppDelegate.swift */,
+			);
+			path = "App Delegate";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,10 +245,12 @@
 				7F06154A20AB887D0092A6B0 /* Sources */,
 				7F06154B20AB887D0092A6B0 /* Frameworks */,
 				7F06154C20AB887D0092A6B0 /* Resources */,
+				7F06158420AD03F70092A6B0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7F06158320AD03F70092A6B0 /* PBXTargetDependency */,
 			);
 			name = TheSwifter;
 			productName = TheSwifter;
@@ -253,12 +355,22 @@
 				7F06157920AB8E4B0092A6B0 /* Model.swift in Sources */,
 				7F06157B20ACDAE80092A6B0 /* UIButtonExtensions.swift in Sources */,
 				7F06157D20ACE31A0092A6B0 /* StreamingTweetCell.swift in Sources */,
-				7F06155420AB887D0092A6B0 /* ViewController.swift in Sources */,
+				7F06158920AE04E40092A6B0 /* DataManager.swift in Sources */,
+				7F06158720AE048A0092A6B0 /* Protocols.swift in Sources */,
+				7F06155420AB887D0092A6B0 /* StreamingTweetsViewController.swift in Sources */,
 				7F06155220AB887D0092A6B0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7F06158320AD03F70092A6B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwifteriOS;
+			targetProxy = 7F06158220AD03F70092A6B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7F06155520AB887D0092A6B0 /* Main.storyboard */ = {
@@ -397,10 +509,11 @@
 		7F06156120AB887E0092A6B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59PJQG777R;
-				INFOPLIST_FILE = TheSwifter/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TheSwifter/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -415,10 +528,11 @@
 		7F06156220AB887E0092A6B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59PJQG777R;
-				INFOPLIST_FILE = TheSwifter/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TheSwifter/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

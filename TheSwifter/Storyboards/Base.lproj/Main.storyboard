@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Streaming Tweets View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TheSwifter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="StreamingTweetsViewController" customModule="TheSwifter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,13 +84,16 @@
                                 <rect key="frame" x="137" y="76" width="100" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="2zR-SS-bhs"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="2zR-SS-bhs"/>
                                 </constraints>
                                 <state key="normal" title="Pause"/>
                                 <connections>
-                                    <action selector="pauseButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xOI-0k-IsG"/>
+                                    <action selector="pauseResumeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xOI-0k-IsG"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Tft-nZ-KID">
+                                <rect key="frame" x="177" y="114" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.31095768545114644" green="0.43276260786383941" blue="0.72170447335025378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -99,9 +102,11 @@
                             <constraint firstItem="AI6-NN-BOv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="JWP-wj-2dG"/>
                             <constraint firstItem="AI6-NN-BOv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="T5f-7z-JF6"/>
                             <constraint firstItem="vlb-nG-YsZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="V2C-em-2fv"/>
-                            <constraint firstItem="YYk-GA-zQc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ykx-8u-ld9"/>
+                            <constraint firstItem="YYk-GA-zQc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ykx-8u-ld9"/>
                             <constraint firstItem="Mia-5l-iPT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aQb-pH-Rcm"/>
+                            <constraint firstItem="Tft-nZ-KID" firstAttribute="top" secondItem="vlb-nG-YsZ" secondAttribute="bottom" constant="8" id="c4f-jo-nwR"/>
                             <constraint firstItem="Mia-5l-iPT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="105" id="dFl-Wm-59t"/>
+                            <constraint firstItem="Tft-nZ-KID" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dQq-KI-g1t"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YYk-GA-zQc" secondAttribute="trailing" constant="16" id="kJh-yA-BR0"/>
                             <constraint firstItem="AI6-NN-BOv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mMR-yS-9qY"/>
                             <constraint firstItem="YYk-GA-zQc" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="qu4-tc-RCp"/>
@@ -114,6 +119,7 @@
                         <outlet property="instructionsLabel" destination="YYk-GA-zQc" id="ALL-Pz-19A"/>
                         <outlet property="pauseButton" destination="vlb-nG-YsZ" id="oze-Hy-TMD"/>
                         <outlet property="searchBar" destination="AI6-NN-BOv" id="r6h-Oy-vwp"/>
+                        <outlet property="spinner" destination="Tft-nZ-KID" id="yJk-Cn-p4h"/>
                         <outlet property="tweetTableView" destination="Mia-5l-iPT" id="e83-MY-RSS"/>
                     </connections>
                 </viewController>

@@ -9,9 +9,7 @@
 import UIKit
 
 class StreamingTweetCell: UITableViewCell {
-
     @IBOutlet weak var nameText: UILabel!
-    
     @IBOutlet weak var tweetText: UILabel!
     
     override func awakeFromNib() {
@@ -21,8 +19,6 @@ class StreamingTweetCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
