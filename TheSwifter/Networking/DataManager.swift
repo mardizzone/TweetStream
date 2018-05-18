@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import SwifteriOS
+import Alamofire
+import OAuthSwift
 
 class DataManager {
     var delegate: DataManagerDelegate?
@@ -15,26 +16,35 @@ class DataManager {
     var currentListOfTweets = [Tweet]()
     
     //In a production app, we would protect these creds
-    let swifter = Swifter(consumerKey: "mTahSWW19W3HHVEhpx0Jtak59", consumerSecret: "1HYnGZarhUgDBrF2JU62IwjgNbNmTekAYYT520yvonkxJKfUX5", oauthToken: "751178350111055872-I55bOJknyRyBW1lpRkeNiGjZezeQSoE", oauthTokenSecret: "yDvfTJ37KnkgwAaFIuqIS6yFKrT0ecNqROUERgQAz60zs")
+    let client = OAuthSwiftClient(consumerKey: "mTahSWW19W3HHVEhpx0Jtak59", consumerSecret: "1HYnGZarhUgDBrF2JU62IwjgNbNmTekAYYT520yvonkxJKfUX5", oauthToken: "751178350111055872-I55bOJknyRyBW1lpRkeNiGjZezeQSoE", oauthTokenSecret: "yDvfTJ37KnkgwAaFIuqIS6yFKrT0ecNqROUERgQAz60zs", version: .oauth1)
     
     static let shared = DataManager()
+    
+    let url = "https://stream.twitter.com/1.1/statuses/filter.json"
         
-    var streamRequest : HTTPRequest?
+    var streamRequest : DataRequest?
     
     func createTwitterSearchTermSearch(with searchTerm: String) {
-        streamRequest = swifter.postTweetFilters(follow: nil, track: [searchTerm], locations: nil, delimited: true, stallWarnings: nil, filterLevel: nil, language: nil, progress: { status in self.ingestTweets(status)}, stallWarningHandler: nil, failure: nil)
-    }
-    
-    func ingestTweets(_ input: JSON) {
-        if let tweetText = input["text"].string, let userText = input["user"]["screen_name"].string {
-            let tweet = Tweet(text: tweetText, user: userText)
-            self.currentListOfTweets.append(tweet)
-            self.delegate?.loadNewCells(listOfTweets: self.currentListOfTweets)
+        let parameters = ["track" : searchTerm]
+        do {
+            streamRequest = try Alamofire.request((client.makeRequest(url, method: .POST, parameters: parameters, headers: nil, body: nil)?.makeRequest())!).stream {data in
+                if let tweet = Tweet.createTweetObject(from: data) {
+                    self.ingestTweets(tweet)
+                }
+            }
+            streamRequest?.resume()
+        } catch {
+           //handle error
         }
     }
     
+    func ingestTweets(_ tweet: Tweet) {
+        self.currentListOfTweets.append(tweet)
+        self.delegate?.loadNewCells(listOfTweets: self.currentListOfTweets)
+    }
+    
     func stopLoadingTweets() {
-        streamRequest?.stop()
+        streamRequest?.cancel()
     }
     
     func emptyCurrentListOfTweets() {

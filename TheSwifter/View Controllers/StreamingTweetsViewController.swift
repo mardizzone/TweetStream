@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwifteriOS
 
 class StreamingTweetsViewController: UIViewController  {
     @IBOutlet weak var tweetTableView: UITableView!
@@ -25,7 +24,9 @@ class StreamingTweetsViewController: UIViewController  {
         didSet {
             //show most recent tweets at top of tableview
             currentTweets.reverse()
-            tweetTableView.reloadData()
+            DispatchQueue.main.async {
+                self.tweetTableView.reloadData()
+            }
         }
     }
     
@@ -53,7 +54,7 @@ extension StreamingTweetsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tweetTableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! StreamingTweetCell
         cell.tweetText.text = currentTweets[indexPath.row].text
-        cell.nameText.text = currentTweets[indexPath.row].user
+        cell.nameText.text = currentTweets[indexPath.row].user.screen_name
         return cell
     }
 }
@@ -85,9 +86,11 @@ extension StreamingTweetsViewController: DataManagerDelegate {
     }
     
     func hideUIElements() {
-        spinner.stopAnimating()
-        pauseButton.isHidden = false
-        instructionsLabel.isHidden = true
+        DispatchQueue.main.async {
+            self.spinner.stopAnimating()
+            self.pauseButton.isHidden = false
+            self.instructionsLabel.isHidden = true
+        }
     }
 }
 

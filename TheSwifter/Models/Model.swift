@@ -8,9 +8,23 @@
 
 import Foundation
 
-struct Tweet {
+struct Tweet : Codable {
     let text: String
-    let user: String
+    let user: User
+    
+    static func createTweetObject(from data: Data) -> Tweet? {
+        do {
+            let tweet = try JSONDecoder().decode(Tweet.self, from: data)
+            return tweet
+        } catch {
+            //handle error
+            return nil
+        }
+    }
+}
+
+struct User : Codable {
+    let screen_name : String
 }
 
 enum SearchingState {
