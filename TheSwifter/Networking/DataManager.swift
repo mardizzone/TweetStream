@@ -25,6 +25,7 @@ class DataManager {
     var streamRequest : DataRequest?
     
     func createTwitterSearchTermSearch(with searchTerm: String) {
+        streamRequest?.cancel()
         let parameters = ["track" : searchTerm]
         do {
             streamRequest = try Alamofire.request((client.makeRequest(url, method: .POST, parameters: parameters, headers: nil, body: nil)?.makeRequest())!).stream {data in
